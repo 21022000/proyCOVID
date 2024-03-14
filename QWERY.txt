@@ -1,0 +1,23 @@
+--Creacion de la tabla 
+CREATE TABLE Vacunacion (
+    Nombre VARCHAR(50),
+    Apellido VARCHAR(50),
+    PuestoLaboral VARCHAR(50),
+    VacunaAdministrada VARCHAR(50),
+    FechaPrimeraDosis DATE
+);
+
+--Creacion del SP
+CREATE PROCEDURE DatosVacunacion
+AS
+BEGIN
+    SELECT Nombre, Apellido, PuestoLaboral, VacunaAdministrada, FechaPrimeraDosis
+    FROM Vacunacion;
+END;
+
+--Insertar informacion a la tabla 
+BEGIN TRAN
+INSERT INTO Vacunacion (Nombre, Apellido, PuestoLaboral, VacunaAdministrada, FechaPrimeraDosis)
+VALUES ('NombreEjemplo', 'ApellidoEjemplo', 'PuestoEjemplo', 'VacunaEjemplo', '2024-03-14');
+ROLLBACK
+--COMMIT 
